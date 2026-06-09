@@ -8,7 +8,7 @@ const sendBtn = document.getElementById('sendBtn');
 // 대화 히스토리 (OpenAI messages 형식)
 let history = [];
 // 선택된 모델
-let selectedModel = 'gpt-4.1';
+let selectedModel = 'gpt-4o';
 
 // ----- 메타프롬프팅: 캐릭터 → 시스템 인스트럭션 -----
 function buildSystemPrompt(name, desc) {
