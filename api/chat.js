@@ -1,7 +1,7 @@
 // Vercel 서버리스 함수: POST /api/chat
 // 프론트가 보낸 messages + model 을 OpenAI 로 프록시한다.
 
-const ALLOWED_MODELS = ['gpt-4o', 'gpt-5.5'];
+const ALLOWED_MODELS = ['gpt-4.1', 'gpt-5.4'];
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   // 허용된 모델만 사용, 그 외엔 기본값(env MODEL 또는 gpt-4o)
   const chosen = ALLOWED_MODELS.includes(model)
     ? model
-    : process.env.MODEL || 'gpt-4o';
+    : process.env.MODEL || 'gpt-4.1';
 
   try {
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
