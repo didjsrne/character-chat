@@ -12,7 +12,7 @@ app.use(express.static(__dirname));
 
 const API_KEY = process.env.API_KEY;
 const PORT = process.env.PORT || 3000;
-const ALLOWED_MODELS = ['gpt-4o', 'gpt-5.5'];
+const ALLOWED_MODELS = ['gpt-4o-mini', 'gpt-5.4'];
 
 app.post('/api/chat', async (req, res) => {
   if (!API_KEY) {
@@ -26,7 +26,7 @@ app.post('/api/chat', async (req, res) => {
 
   const chosen = ALLOWED_MODELS.includes(model)
     ? model
-    : process.env.MODEL || 'gpt-4o';
+    : process.env.MODEL || 'gpt-4o-mini';
 
   try {
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
