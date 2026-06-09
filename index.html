@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>캐릭터 채팅</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 캐릭터 설정 화면 -->
+  <section id="setup" class="setup">
+    <div class="setup-card">
+      <h1>🎭 캐릭터 만들기</h1>
+      <p class="sub">대화를 시작하기 전에 캐릭터를 설정해 주세요.</p>
+
+      <label>캐릭터 이름</label>
+      <input id="charName" type="text" placeholder="예) 셜록 홈즈, 츤데레 고양이..." />
+
+      <label>추가 설명 <span class="dim">(성격, 말투, 배경 등)</span></label>
+      <textarea id="charDesc" rows="4" placeholder="예) 차갑고 논리적이지만 가끔 따뜻함. 반말을 쓰고 문장이 짧음."></textarea>
+
+      <label>모델 선택</label>
+      <select id="modelSelect">
+        <option value="gpt-4o">GPT-4o (빠르고 저렴)</option>
+        <option value="gpt-5.5">GPT-5.5 (최신·고성능)</option>
+      </select>
+
+      <button id="startBtn">대화 시작하기 →</button>
+    </div>
+  </section>
+
+  <!-- 채팅 화면 -->
+  <section id="chat" class="chat hidden">
+    <header class="chat-header">
+      <button id="resetBtn" class="icon-btn" title="캐릭터 재설정">↺</button>
+      <div class="header-title">
+        <strong id="headerName">캐릭터</strong>
+        <span id="headerDesc" class="dim"></span>
+      </div>
+    </header>
+
+    <div id="messages" class="messages"></div>
+
+    <form id="chatForm" class="composer">
+      <textarea id="input" rows="1" placeholder="메시지를 입력하세요..." autocomplete="off"></textarea>
+      <button id="sendBtn" type="submit">전송</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

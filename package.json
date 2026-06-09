@@ -1,0 +1,13 @@
+{
+  "name": "character-chat",
+  "version": "1.0.0",
+  "description": "ChatGPT API 캐릭터 채팅 웹앱 (Vercel 배포용)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

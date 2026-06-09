@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #0f1115;
+  --panel: #1a1d24;
+  --panel-2: #242833;
+  --accent: #6c8cff;
+  --text: #eef0f5;
+  --dim: #8b90a0;
+  --user: #6c8cff;
+  --bot: #2b303c;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- 설정 화면 ---------- */
+.setup {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100dvh;
+}
+
+.setup-card {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid #2a2e3a;
+  border-radius: 18px;
+  padding: 28px 24px;
+}
+
+.setup-card h1 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.sub {
+  color: var(--dim);
+  margin-bottom: 22px;
+  font-size: 0.92rem;
+}
+
+.setup-card label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+
+.dim {
+  color: var(--dim);
+  font-weight: 400;
+}
+
+input, textarea, select {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid #333845;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+}
+
+select {
+  cursor: pointer;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#startBtn {
+  width: 100%;
+  margin-top: 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  transition: filter 0.15s;
+}
+
+#startBtn:hover {
+  filter: brightness(1.08);
+}
+
+/* ---------- 채팅 화면 ---------- */
+.chat {
+  width: 100%;
+  max-width: 720px;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid #2a2e3a;
+}
+
+.icon-btn {
+  background: var(--panel-2);
+  border: 1px solid #333845;
+  color: var(--text);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-title strong {
+  font-size: 1.05rem;
+}
+
+.header-title .dim {
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.msg {
+  max-width: 80%;
+  padding: 11px 14px;
+  border-radius: 16px;
+  line-height: 1.5;
+  font-size: 0.98rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  animation: pop 0.18s ease;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: var(--user);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.bot {
+  align-self: flex-start;
+  background: var(--bot);
+  border-bottom-left-radius: 4px;
+}
+
+.msg.typing {
+  color: var(--dim);
+  font-style: italic;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border-top: 1px solid #2a2e3a;
+}
+
+.composer textarea {
+  flex: 1;
+  max-height: 140px;
+  border-radius: 22px;
+}
+
+#sendBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  flex-shrink: 0;
+}
+
+#sendBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ---------- 모바일 ---------- */
+@media (max-width: 600px) {
+  .setup-card h1 { font-size: 1.4rem; }
+  .msg { max-width: 88%; }
+}
